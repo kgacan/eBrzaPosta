@@ -1,0 +1,40 @@
+﻿@using BrzaPosta.ViewModels
+
+@model AdresaDodajVM
+<br/>
+<div class="sadrzajDiv">
+
+    <form asp-action="Snimi2">
+        <div class="form-group">
+            <input hidden readdonly asp-for="SkladisteId" />
+        </div>
+        <div class="form-group">
+            <input hidden asp-for="GradId" />
+        </div>
+        <div class="form-group">
+            <input hidden asp-for="AdresaId" />
+        </div>
+        <div class="form-group">
+            <label class="control-label">Ulica</label>
+            <input asp-for="Ulica" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label class="control-label">Broj ulice</label>
+            <input asp-for="BrUlice" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label class="control-label">Postanski broj</label>
+            <input asp-for="PostnskiBroj" class="form-control" />
+
+        </div>
+        <div class="form-group">
+            <label class="control-label">Aktivna</label>
+            <input asp-for="Aktivna" />
+        </div>
+
+        <button type="submit" class="btn btn-outline-primary btn-lg"><i class="fas fa-save"></i> Snimi</button>
+    </form>
+    <br />
+    <a class="btn btn-outline-info" href='javascript:history.go(-1)'><i class="fas fa-backward"></i> Nazad</a>
+</div>
+

@@ -1,0 +1,232 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+
+
+html {
+    font-size: 12.5px;
+} 
+.sadrzajDiv {
+    width: 80%;
+    position: relative;
+    margin-left: 10%;
+}
+
+.gallery-image {
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100px;
+    width: 130px;
+    margin:10px auto 0px auto;
+    top:0px;
+}
+
+.option-image-container {
+    /*background-color: #f4511e;*/
+    background-color: #f4511e;
+    border-radius: 4px;
+    display: inline-block;
+    height: 150px;
+    width: 150px;
+    margin: 19px;
+    position: relative;
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.2), 0 5px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0.6;
+    transition: 0.4s;
+}
+
+    .option-image-container:hover {
+        /*background: rgb(239,240,241);*/
+        opacity: 1;
+    }
+
+.text {
+    position: relative;
+    height: 40px;
+    width: 150px;
+    text-align: center;
+    background-color: #db3b0a;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 40px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    font-size:1.1em;
+}
+
+/*.option-image-container:hover .text {
+    visibility: visible;
+}*/
+
+.upravljanje {
+    top: 115px;
+    left: 15%;
+    width: 70%;
+    position: relative;
+}
+
+    .upravljanje a {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        color:azure;
+        text-decoration:none;
+        font-size: 1.04em;
+    }
+
+    /*.upravljanje a:hover{
+        text-decoration:none;
+    }*/
+    .upravljanje p {
+        /*background-color: rgb(239,240,241);*/
+        background-color: #f4511e;
+    }
+
+.logo {
+    position: relative;
+}
+
+.pocetni-div {
+    position: relative;
+    top: 140px;
+    left: 10%;
+    width:30%;
+}
+
+.login-forma-okvir {
+    position: absolute;
+    top: 20%;
+    right: 38%;
+    left: 38%;
+    width: 26%;
+    color: azure;
+}
+#rezultatPretragePaketa {
+    position: relative;
+    top: 140px;
+    left: 10%;
+    width: 40%;
+}
+
+
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:1.1em !important;
+}
+
+.search-session{   
+    padding:10px;
+}
+.search-session input{
+    width:50%;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s
+}
+
+/* Modal Content */
+.modal-content {
+    position: fixed;
+    margin-left:25%;
+    bottom: 0;
+    background-color: #fefefe;
+    width: 50%;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: rgb(38,139,210);
+    color: white;
+}
+
+.modal-body {
+    padding: 2px 16px;
+    
+}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: rgb(38,139,210);
+    color: white;
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+    from {
+        bottom: -300px;
+        opacity: 0
+    }
+
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+
+@keyframes slideIn {
+    from {
+        bottom: -300px;
+        opacity: 0
+    }
+
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}

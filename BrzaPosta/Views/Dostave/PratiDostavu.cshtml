@@ -1,0 +1,30 @@
+﻿@model PratiPosiljkuVM
+
+@if(Model.Sifra == null)
+{
+    <div class="nadjenaPosiljka">
+        <span><b>Nažalost, tražena pošiljka nije pronađena. Provjerite ispravnost unosa vaše šifre pošiljke!</b></span>
+    </div>
+}
+else
+{
+    <div class="nadjenaPosiljka">
+        
+            <table>
+                <tr>
+                    <td style=" padding-right:7px;"><b>Šifra:</b></td>
+                    <td>@Model.Sifra</td> 
+                </tr>
+                <tr>
+                    <td style=" padding-right:7px"><b>Dostavljač:</b></td>
+                    <td>@Model.Dostavljac</td>
+                </tr>
+                <tr>
+                    <td style="padding-right:7px;"><b>Trenutna lokacija pošiljke:</b></td>
+                    <td>@Model.TrenutnaAdresa</td>
+                </tr>
+            </table>
+    </div>
+}
+
+

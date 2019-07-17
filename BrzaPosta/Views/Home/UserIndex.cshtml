@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewData["Title"] = "Pocetna";
+}
+
+<div class="upravljanje">
+    <div class="option-image-container">
+        <a asp-controller="Dostave" asp-action="Dodaj">
+            <div class="gallery-image" style="background-image:url(/images/userOpcije/new_delivery.png)"></div>
+            <div class="text">Nova dostava</div>
+        </a>
+    </div>
+
+    <div class="option-image-container">
+        <a asp-controller="" asp-action="">
+            <div class="gallery-image" style="background-image:url(/images/userOpcije/delivery_details.png)"></div>
+            <div class="text">Detalji o dostavi</div>
+        </a>
+    </div>
+
+    <div class="option-image-container">
+        <a asp-controller="" asp-action="">
+            <div class="gallery-image" style="background-image:url(/images/userOpcije/aktivne_dostave.png)"></div>
+            <div class="text">Aktivne dostave</div>
+        </a>
+    </div>
+    <div class="option-image-container">
+        <a asp-controller="Dostave" asp-action="Index">
+            <div class="gallery-image" style="background-image:url(/images/userOpcije/delivery_archive.png)"></div>
+            <div class="text">Arhiva dostava</div>
+        </a>
+    </div>
+    <div class="option-image-container">
+        <a asp-controller="Dostave" asp-action="PretragaPosiljke">
+            <div class="gallery-image" style="background-image:url(/images/userOpcije/delivery_tracking.png)"></div>
+            <div class="text">Prati dostavu</div>
+        </a>
+    </div>
+</div>
+

@@ -1,0 +1,87 @@
+﻿@using BrzaPosta.Web.ViewModels
+
+@model DostavaDodajVM
+
+<h2>Dodaj dostavu</h2>
+
+<form asp-action="Snimi">
+    <input asp-for="PosiljalacId" hidden />
+    <div class="form-group">
+        <label>Posiljalac:</label>
+        <div>
+            <input asp-for="posiljalac" readonly />
+        </div>
+    </div>
+    <div class="form-group">
+        <input hidden asp-for="DostavaId" />
+    </div>
+    <div class="form-group">
+        <label>Datum dostave:</label>
+        <input asp-for="DatumDostave" />
+    </div>
+    <div class="form-group">
+        <label>Datum kreiranja:</label>
+        <input asp-for="DatumKreiranja" />
+    </div>
+    <div class="form-group">
+        <label>Datum modificiranja:</label>
+        <input asp-for="DatumIzmjene" />
+    </div>
+    <div class="form-group">
+        <label>Prioritet:</label>
+        <div>
+            <input asp-for="Prioritet" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Aktivna:</label>
+        <div>
+            <input asp-for="Aktivna" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label>BrojDostave:</label>
+        <div>
+            <input asp-for="BrojDostave" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Tezina:</label>
+        <div>
+            <input asp-for="Tezina" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Cijena:</label>
+        <div>
+            <input asp-for="Cijena" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Primalac:</label>
+        <div>
+            <select asp-for="PrimalacId" asp-items="Model.korisnici"></select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Platilac:</label>
+        <div>
+            <select asp-for="PlatilacId" asp-items="Model.korisnici"></select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Dostavljac:</label>
+        <div>
+            <select asp-for="DostavljacId" asp-items="Model.dostavljaci"></select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Adresa:</label>
+        <div>
+            <select asp-for="TrenutnaAdresaId" asp-items="Model.adrese"></select>
+        </div>
+    </div>
+
+
+    <button type="submit" class="btn btn-success">Next</button>
+</form>

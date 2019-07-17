@@ -1,0 +1,37 @@
+﻿@using BrzaPosta.Web.ViewModels
+
+@model StatusiIndexVM
+@{ 
+    int b = 1;
+}
+<br/>
+
+<h5>STATUSI DOSTAVE</h5>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Rbr.</th>
+            <th>Status dostave</th>
+            <th>Datum izmjene</th>
+            <th>Opis</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (StatusiIndexVM.StatusiVM x in Model.listaStatusa)
+        {
+        <tr>
+            <td>@(b++)</td>
+            <td>@x.StatusDostave</td>
+            <td>@x.DatumIzmjene</td>
+            <td>@x.Opis</td>
+            <td>
+                @*<a href="#" class="btn btn-warning">Uredi</a>*@
+                <a  asp-action="BrisiStatus" asp-controller="Statusi" asp-route-statusid="@x.StatusId" asp-route-dostavaid="@Model.dostavaId" class="btn btn-outline-warning"><i class="far fa-trash-alt"></i></a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<a asp-action="DodajStatus" asp-controller="Statusi" asp-route-DostavaID="@Model.dostavaId" class="btn btn-outline-primary"><i class="fas fa-plus"></i> Dodaj</a>

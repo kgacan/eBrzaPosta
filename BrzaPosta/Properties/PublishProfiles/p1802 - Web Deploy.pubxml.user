@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAK4yMJb3jbUCgCtKEqg6MNQAAAAACAAAAAAAQZgAAAAEAACAAAACsZkYdZ6MpKSgNlib+56QCWY3SAUiwolu5Vnhy3/64jgAAAAAOgAAAAAIAACAAAAD6cp6j7x8TrEEYP3R8sZX9Jg9VauuYJhYzTBL03bGWsYAAAAC6hrAN8wqRmSt8LGLYOadwrXVkwLwl83nf/Wp0XiMKk0Jk8ZdHJWvwNry9+aS6GXElyF+Iu/NXLUJRqoR9KOJsx7OM1irEHheAGl6zpZLmjlSAFQVPFpzXt/JSitWH69oNvzMa5/CvApvJ92iYlU89q/mE5A7UcXyvO5Ik0qWuFUAAAAB3mlXK9FgCaL067Bt97FY3mnXa09ykgF1eJOD7VXwYxtxxrWUfD1fSf0kxUL7jdSH5VUv3SOCkcq0I/muk9rAK</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=tcp:p1802dbserver.database.windows.net,1433%3bInitial Catalog=p1802_db%3bUser Id=kemal%40p1802dbserver%3bPassword=TraktorSaKabinom5</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="BrzaPosta.EF.BrzaPostaDbContext">
+      <Value>Data Source=tcp:p1802dbserver.database.windows.net,1433%3bInitial Catalog=p1802_db%3bUser Id=kemal%40p1802dbserver%3bPassword=TraktorSaKabinom5</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

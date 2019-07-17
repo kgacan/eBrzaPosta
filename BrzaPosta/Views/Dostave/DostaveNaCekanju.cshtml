@@ -1,0 +1,115 @@
+﻿@using BrzaPosta.Web.ViewModels
+
+@model DostavaIndexVM
+
+@{
+    int i = 1;
+}
+
+<div class="sadrzajDiv">
+    <a href="/Skladiste/Dodaj" class="btn btn-outline-primary btn-lg" style="float:right; margin-bottom:5px;"><i class="fas fa-plus"></i> Dodaj</a>
+
+    <table class="table table-light">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Posiljalac</th>
+                <th scope="col">Primalac</th>
+                <th scope="col">Dostavljac</th>
+                <th scope="col">Platilac</th>
+                <th scope="col">Akcija</th>
+            </tr>
+        </thead>
+    </table>
+
+    <table class="table table-light">
+        <tbody>
+            @foreach (DostavaIndexVM.DostavaVM x in Model.dostaveZaHtml)
+            {
+                <tr class="table-dark">
+                    <td>@(i++)</td>
+                    <td>@x.Posiljalac</td>
+                    <td>@x.Primalac</td>
+                    <td>@x.Dostavljac</td>
+                    <td>@x.Platilac</td>
+                    <td>
+                        <a href="/Dostave/Detalji?DostavaID=@x.DostavaId" class="btn btn-outline-info"><i class="fas fa-info-circle"></i></a>
+                        <a id="myBtn" modal-poziv='da' modalUrl="/Dostave/Zavrsi?DostavaID=@x.DostavaId" class="btn btn-outline-info"><i class="far fa-check-circle"></i> Završi</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h3>Ukupno dostava: @Model.brojDostava</h3>
+
+    <br />
+    <a class="btn btn-outline-info" asp-action="Index" asp-controller="Home" asp-route-DostavaID=""><i class="fas fa-backward"></i> Nazad</a>
+
+
+    <!-- Trigger/Open The Modal -->
+    @*<button id="myBtn">Open Modal</button>*@
+    @*href="/Dostave/Zavrsi?DostavaID=@x.DostavaId"*@
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 style="padding:5px;">Dodaj status završene dostave</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <div class="logo" style="padding:0 10px">
+                    <img src="~/images/fast_delivery.png" style="width:45px; height:40px; padding:5px;" />
+                    <span style="font-size:1.3em;">BrzaPošta</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        //var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal
+        $("a[modal-poziv='da']").click(function () {
+            modal.style.display = "block";
+
+            var btn = $(this);
+            var url = btn.attr("modalUrl");
+
+            $.get({
+                url: url,
+                success: function (rez) {
+                    $(".modal-body").html(rez);
+                }
+            });
+        });
+
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+

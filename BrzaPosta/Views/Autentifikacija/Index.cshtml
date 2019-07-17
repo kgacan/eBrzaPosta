@@ -1,0 +1,45 @@
+﻿@model BrzaPosta.Web.ViewModels.LoginVM
+
+@{
+    ViewData["Title"] = "Login";
+    string error_poruka = (string)TempData["error_poruka"];
+    Layout = "_LayoutAnonim";
+}
+
+<div class="login-forma-okvir">
+
+
+    <img src="~/images/fast_delivery.png" style="width:160px; height:120px; display: block; margin: 0 auto;"  />
+
+
+    <form asp-action="Login">
+
+        <div class="form-group">
+            <label>Username </label>
+            <div class="form-group">
+                <input asp-for="username" class="form-control form-control" />
+                <span asp-validation-for="username" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Password </label>
+            <div class="form-group">
+                <input asp-for="password" class="form-control form-control" />
+                <span asp-validation-for="password" class="text-danger"></span>
+            </div>
+        </div>
+
+
+        <input type="submit" class="form-control btn btn-primary" value="Login" />
+        <input asp-for="ZapamtiPassword" />   Zapamti password
+    </form>
+
+    @if (error_poruka != null)
+    {
+        <br />
+        <div class="alert alert-danger">
+            @error_poruka
+        </div>
+    }
+</div>

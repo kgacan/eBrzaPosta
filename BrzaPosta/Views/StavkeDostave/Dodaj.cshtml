@@ -1,0 +1,73 @@
+﻿
+@using BrzaPosta.Web.ViewModels
+@model StavkeDostaveDodajVM
+
+
+<h2>Dodaj stavku</h2>
+
+<form id="formaStavke" asp-action="SnimiNovuStavku">
+    <input asp-for="PosiljalacID" hidden />
+    <input asp-for="DostavaID" hidden />
+    <input asp-for="StavkaId" hidden />
+    <div class="form-group">
+        <label>BrojStavke:</label>
+        <div>
+            <input asp-for="BrojStavke" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Naziv:</label>
+        <div>
+            <input asp-for="Naziv" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Tezina:</label>
+        <div>
+            <input asp-for="Tezina" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Opis:</label>
+        <div>
+            <input asp-for="Opis" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Odaberite vrstu stavke:</label>
+        <div>
+            <select asp-for="VrstaId" asp-items="Model.vrsteStavki"></select>
+        </div>
+    </div>
+    <p>Ukupno dodano stavki na dostavu:@Model.UkupnoDodanoStavki</p>
+    <br /><br />
+    <button id="dodajjos" type="button" class="btn btn-success">Dodaj jos stavki</button>
+    <button id="zavrsi" type="submit" class="btn btn-success">Zavrsi</button>
+</form>
+
+<script>
+
+</script>
+<script>
+    $(document).ready(function () {
+
+
+        $("#dodajjos").click(function () {
+
+            var forma = $("#formaStavke").serialize();
+            var url = "/StavkeDostave/SnimiNovuStavku"
+
+            $.ajax({
+                async: true,
+                type: "POST",
+                url: url,
+                data: forma,
+                success: function () {
+                    window.location.reload();
+                }
+            });
+        });
+
+    });
+
+</script>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="p1802" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\kemal\\source\\repos\\webapp\\BrzaPosta\\BrzaPosta\\obj\\Release\\netcoreapp2\.1\\PubTmp\\Out\\$" />
+  </parameter>
+  <parameter name="BrzaPosta.EF.BrzaPostaDbContext" description="" value="Data Source=tcp:p1802dbserver.database.windows.net,1433;Initial Catalog=p1802_db;User Id=kemal@p1802dbserver;Password=TraktorSaKabinom5" tags="dbfullsql">
+    <parameterEntry kind="ProviderPath" scope="dbfullsql" match="^C:\\Users\\kemal\\source\\repos\\webapp\\BrzaPosta\\BrzaPosta\\obj\\Release\\netcoreapp2\.1\\PubTmp\\EFSQLScripts\\BrzaPosta\.EF\.BrzaPostaDbContext\.sql$" />
+  </parameter>
+</parameters>

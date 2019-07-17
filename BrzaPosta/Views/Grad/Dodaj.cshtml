@@ -1,0 +1,24 @@
+﻿
+@using BrzaPosta.ViewModels
+@model GradDodajVM
+
+<form ajax-poziv="da" action="/Grad/Snimi" ajax-rez="content">
+
+    <div class="form-group">
+        <input hidden asp-for="drzavaId" />
+    </div>
+    <div class="form-group">
+        <div>
+            <input readonly asp-for="gradId" type="text" class="form-control" hidden/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Grad:</label>
+        <div>
+             <input asp-for="naziv" type="text" class="form-control"/>
+             <span asp-validation-for="naziv" class="text-danger"></span>
+        </div>
+    </div>
+
+        <button type="submit" class="btn btn-outline-primary btn-lg"><i class="fas fa-save"></i> Snimi</button>
+</form>

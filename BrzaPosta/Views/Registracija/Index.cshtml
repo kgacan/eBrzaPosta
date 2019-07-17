@@ -1,0 +1,18 @@
+﻿@model BrzaPosta.EntityModels.Zaposlenik
+@{
+    ViewBag.Title = "Brza Posta - registracija";
+}
+
+<div>
+    <br />
+
+    <h3>Registracija</h3>
+
+    @using (Html.BeginForm("Registruj", "Registracija"))
+    {
+        @Html.LabelFor(n => n.Username); @Html.TextBoxFor(m => m.Username); <br />
+        @Html.LabelFor(n => n.Password); @Html.TextBoxFor(m => m.Password); <br />
+
+        <input type="submit" value="Registruj" id="btnRegistruj" />
+    }
+</div>

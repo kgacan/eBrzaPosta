@@ -1,0 +1,27 @@
+﻿@using BrzaPosta.ViewModels
+@{
+    ViewData["Title"] = "UrediForm";
+}
+@model DrzavaUrediVM
+<br/>
+
+<div class="sadrzajDiv">
+
+    <form asp-action="Snimi">
+        @Html.HiddenFor(d => d.DrzavaId)
+
+        <div class="form-group">
+            <label>Naziv</label>
+            <input asp-for="Naziv" class="form-control" />
+            <span asp-validation-for="Naziv" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label>Region</label>
+            <select asp-for="RegionId" asp-items="Model.regioniZaHTML" class="form-control"></select>
+        </div>
+
+        <button type="submit" class="btn btn-outline-primary btn-lg"><i class="far fa-save"></i> Snimi</button>
+    </form>
+
+</div>
+@*<form asp-controller="Drzava" asp-action="Snimi" data-ajax="true" data-ajax-method="POST" data-ajax-mode="replace" data-ajax-update="#content">*@

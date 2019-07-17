@@ -1,0 +1,45 @@
+﻿@using BrzaPosta.Web.ViewModels
+
+@model StavkeDostaveIndexVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br/>
+<h5>STAVKE DOSTAVE</h5>
+
+@{
+    int b = 1;
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>R. br.</th>
+            <th>Broj</th>
+            <th>Naziv</th>
+            <th>Opis</th>
+            <th>Tezina</th>
+            <th>Vrsta</th>
+            <th>Akcije</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (StavkeDostaveIndexVM.StavkeDostaveVM x in Model.listaStavkeDostave)
+        {
+            <tr>
+                <td>@(b++)</td>
+                <td>@x.BrojStavke</td>
+                <td>@x.Naziv</td>
+                <td>@x.Opis</td>
+                <td>@x.Tezina</td>
+                <td>@x.NazivVrste</td>
+                <td>
+                    <a asp-action="Uredi" asp-controller="StavkeDostave" asp-route-StavkaId="@x.StavkaId" class="btn btn-outline-secondary"><i class="far fa-edit"></i></a>
+                    <a href="/StavkeDostave/Obrisi/?StavkaId=@x.StavkaId" class="btn btn-outline-warning"><i class="far fa-trash-alt"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/StavkeDostave/Dodaj/?DostavaID=@Model.DostavaId&PosiljalacID=@Model.PosiljalacId" class="btn btn-outline-primary"><i class="fas fa-plus"></i> Dodaj</a>

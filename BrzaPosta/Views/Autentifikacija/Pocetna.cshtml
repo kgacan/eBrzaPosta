@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Brza Posta - pocetna";
+    Layout = "_LayoutAnonim";
+}
+
+
+<div class="pocetni-div">
+    <h1 class="display-3">Brza Pošta</h1>
+    <hr class="my-4">
+    <div>
+        <input style="display:inline; width:300px;" class="form-control form-control-lg" id="inputSifra"  type="text" placeholder="Unesite Vaš ID...">
+        <button pretrazi="da" type="button" class="btn btn-outline-primary btn-lg">Prati pošiljku</button>
+    </div>
+</div>
+
+<div id="rezultatPretragePaketa"></div>
+
+<script>
+    $("button[pretrazi='da']").click(function () {
+
+        var sifraPaketa = $("#inputSifra").val().trim()
+        var url = "/Dostave/PratiDostavu?sifra=" + sifraPaketa;
+        var rez = "rezultatPretragePaketa";
+
+        $.get(url,
+            function (rezultat) {
+                $("#" + rez).html(rezultat);
+            }
+        )
+    });
+</script>

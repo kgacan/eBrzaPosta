@@ -1,0 +1,48 @@
+﻿@using BrzaPosta.Web.ViewModels
+
+@model DostavaIndexVM
+
+@{
+    int i = 1;
+}
+
+<div class="sadrzajDiv">
+    <a href="/Skladiste/Dodaj" class="btn btn-outline-primary btn-lg" style="float:right; margin-bottom:5px;"><i class="fas fa-plus"></i> Dodaj</a>
+
+    <table class="table table-light">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Posiljalac</th>
+                <th scope="col">Primalac</th>
+                <th scope="col">Dostavljac</th>
+                <th scope="col">Platilac</th>
+                <th scope="col">Akcija</th>
+            </tr>
+        </thead>
+    </table>
+
+    <table class="table table-light">
+        <tbody>
+            @foreach (DostavaIndexVM.DostavaVM x in Model.dostaveZaHtml)
+            {
+                <tr class="table-dark">
+                    <td>@(i++)</td>
+                    <td>@x.Posiljalac</td>
+                    <td>@x.Primalac</td>
+                    <td>@x.Dostavljac</td>
+                    <td>@x.Platilac</td>
+                    <td>
+                        <a href="/Dostave/Detalji?DostavaID=@x.DostavaId" class="btn btn-outline-info"><i class="fas fa-info-circle"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h3>Ukupno dostava: @Model.brojDostava</h3>
+
+    <br />
+    <a class="btn btn-outline-info" asp-action="Index" asp-controller="Home" asp-route-DostavaID=""><i class="fas fa-backward"></i> Nazad</a>
+</div>
+

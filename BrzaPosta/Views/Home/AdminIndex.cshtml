@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "AdminIndex";
+}
+
+<div class="upravljanje">
+    <div class="option-image-container">
+        <a asp-controller="Region" asp-action="Index">
+            <div class="gallery-image" style="background-image:url(/images/adminOpcije/region.png);">
+
+            </div>
+            <div class="text">Region</div>
+        </a>
+    </div>
+    <div class="option-image-container">
+        <a asp-controller="Drzava" asp-action="Prikazi">
+            <div class="gallery-image" style="background-image:url(/images/adminOpcije/state.png)">
+
+            </div>
+            <div class="text">Države</div>
+        </a>
+    </div>
+    <div class="option-image-container">
+        <a asp-controller="Sesija" asp-action="Prikazi">
+            <div class="gallery-image" style="background-image:url(/images/adminOpcije/session.png)"></div>
+        </a>
+        <div class="text" style="color:white;">Sesije</div>
+    </div>
+    <div class="option-image-container">
+        <a asp-controller="Skladiste" asp-action="Index">
+            <div class="gallery-image" style="background-image:url(/images/adminOpcije/warehouse.png)"></div>
+            <div class="text">Skladišta</div>
+        </a>
+    </div>
+    <div class="option-image-container">
+        <a asp-controller="Dostave" asp-action="PretragaPosiljke">
+            <div class="gallery-image" style="background-image:url(/images/userOpcije/delivery_tracking.png)"></div>
+            <div class="text">Prati dostavu</div>
+        </a>
+    </div>
+</div>
+
+

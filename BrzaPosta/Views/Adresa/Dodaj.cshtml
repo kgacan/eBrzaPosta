@@ -1,0 +1,41 @@
+﻿@using BrzaPosta.ViewModels
+
+@model AdresaDodajVM
+
+<h2>Dodaj adresu</h2>
+
+<form ajax-poziv="da" action="/Adresa/Snimi" ajax-rez="nekiID">
+
+    <div class="form-group">
+        <input hidden asp-for="GradId" val />
+    </div>
+    <div class="form-group">
+        <input hidden asp-for="AdresaId" />
+    </div>
+    <div class="form-group">
+        <label class="control-label">Ulica</label>
+        <div>
+            <input asp-for="Ulica" type="text" class="form-control"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Broj ulice</label>
+        <div>
+            <input asp-for="BrUlice" type="text" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Postanski broj</label>
+        <div>
+            <input asp-for="PostnskiBroj" type="text" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Aktivna</label>
+        <div>
+            <input asp-for="Aktivna" type="text" class="form-control"/>
+        </div>
+    </div>
+
+    <button type="submit"  class="btn btn-outline-primary btn-lg"><i class="fas fa-save"></i> Snimi</button>
+</form>

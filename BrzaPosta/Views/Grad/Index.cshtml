@@ -1,0 +1,42 @@
+﻿
+@using BrzaPosta.ViewModels
+
+@model GradIndexVM
+
+@{
+    string porukaSuccess = TempData["poruka-success"] as string;
+    int brojac = 1;
+}
+
+@if (porukaSuccess != null)
+{
+    <div class="alert alert-dismissible alert-success" id="porukaBox">
+        <strong>@porukaSuccess</strong>
+    </div>
+}
+
+<table class="table table-hover table-light" style="margin:5px 0;">
+    <thead>
+        <tr>
+            <th scope="col" colspan="3">Gradovi</th>
+        </tr>
+    </thead>
+</table>
+<table class="table table-hover table-light">
+   <tbody>
+        @foreach (GradIndexVM.Row x in Model.gradoviZaHtml)
+        {
+            <tr class="table-dark">
+                <td>@(brojac++)</td>
+                <td>@x.Naziv</td>
+                <td>
+                    <a href="/Adresa/Prikazi?GradID=@x.GradId" class="btn btn-outline-info"><i class="fas fa-location-arrow"></i> Adrese</a>
+                    <button ajax-poziv="da" ajax-url="/Grad/Uredi?Id=@x.GradId" ajax-rez="content" class="btn btn-outline-secondary"><i class="far fa-edit"></i> Uredi</button>
+                    <button ajax-poziv="da" ajax-url="/Grad/Brisi?Id=@x.GradId" ajax-rez="content" class="btn btn-outline-warning"><i class="far fa-trash-alt"></i> Brisi</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+<button ajax-poziv="da" ajax-url="/Grad/Dodaj?DrzavaId=@Model.drzavaId" ajax-rez="content" class="btn btn-outline-primary btn-lg"><i class="fas fa-plus"></i> Dodaj</button>

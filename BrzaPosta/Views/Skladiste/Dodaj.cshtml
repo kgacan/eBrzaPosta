@@ -1,0 +1,62 @@
+﻿
+@using BrzaPosta.Web.ViewModels
+@model SkladisteDodajVM
+
+<br/>
+
+<div class="sadrzajDiv">
+
+    <form action="/Skladiste/Dodaj?GradId=@Model.GradId&SkladisteId=@Model.SkladisteId">
+
+        <input asp-for="SkladisteId" hidden />
+        <div class="form-group">
+            <label class="control-label">Odaberite grad</label>
+            <div>
+                <select id="oznaceniGrad" asp-for="GradId" asp-items="Model.gradovi" class="form-control"></select>
+                <button type="submit" class="btn btn-outline-primary btn-lg"><i class="fas fa-sync-alt"></i></button>
+            </div>
+        </div>
+
+    </form>
+    <form asp-action="Snimi">
+        <input asp-for="SkladisteId" hidden />
+        <input asp-for="GradId" hidden />
+        <div class="form-group">
+            <label class="control-label">Odaberite adresu</label>
+            <div>
+                <select id="osvjezi" asp-for="AdresaId" asp-items="Model.adrese" class="form-control"></select>
+                <a id="dodajAdresu" class="btn btn-outline-info btn-sm"><i class="fas fa-plus"></i> Dodaj novu adresu</a>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Naziv</label>
+            <div>
+                <input asp-for="Naziv" class="form-control" />
+                <span asp-validation-for="Naziv" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Opis</label>
+            <div>
+                <input asp-for="Opis" class="form-control" />
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-outline-primary btn-lg"><i class="fas fa-save"></i> Snimi</button>
+    </form>
+
+    <br />
+    <a class="btn btn-outline-info" href='javascript:history.go(-1)'><i class="fas fa-backward"></i> Nazad</a>
+</div>
+
+
+
+<script>
+    $(document).ready(function () {
+        $("#dodajAdresu").click(function () {
+            var grad = $("#oznaceniGrad");
+            var GradID = grad.children("option:selected").val();
+            window.open("/Adresa/Dodaj2?GradID=" + GradID + "&SkladisteId=" + @Model.SkladisteId, "_self");
+        });
+     });
+</script>

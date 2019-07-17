@@ -1,0 +1,22 @@
+﻿@using BrzaPosta.ViewModels
+
+@model DrzavaUrediVM
+
+<h2>Dodaj</h2>
+
+<form asp-action="Snimi">
+
+    @Html.HiddenFor(d => d.DrzavaId)
+
+    <div class="form-group">
+        <label>Naziv</label>
+        <input asp-for="Naziv" />
+    </div>
+
+    <div class="form-group">
+        <label>Region</label>
+        <select asp-for="RegionId" asp-items="Model.regioniZaHTML"></select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Snimi</button>
+</form>

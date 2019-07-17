@@ -1,0 +1,34 @@
+﻿
+@model BrzaPosta.Web.ViewModels.SesijaIndexVM
+
+
+<table class="table table-light table-bordered">
+    <thead>
+        <tr>
+            <th>Vrijeme</th>
+            <th>Ip adresa</th>
+            <th>Korisnik</th>
+            <th>Akcija</th>
+
+        </tr>
+    </thead>
+    <tbody class="table-hover">
+        @foreach (var x in Model.Rows)
+        {
+            <tr>
+                <td>
+                    @x.VrijemeLogiranja
+                    @if (x.token == Model.TrenutniToken)
+                    {
+                        <strong>(trenutna sesija)</strong>
+                    }
+                </td>
+                <td>@x.IpAdresa</td>
+                <td>@x.username</td>
+                <td>
+                    <a asp-action="Obrisi" asp-route-token="@x.token" class="btn btn-outline-warning"><i class="far fa-trash-alt"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

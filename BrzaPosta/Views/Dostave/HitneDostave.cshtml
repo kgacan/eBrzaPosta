@@ -1,0 +1,73 @@
+﻿
+@model ReflectionIT.Mvc.Paging.PagingList<HitneDostaveVM>
+@using ReflectionIT.Mvc.Paging
+@addTagHelper *, ReflectionIT.Mvc.Paging
+
+@{
+    ViewData["Title"] = "HitneDostave";
+}
+
+<div class="sadrzajDiv">
+
+    <nav aria-label="Suppliers navigation example">
+        @await this.Component.InvokeAsync("Pager", new { pagingList = this.Model })
+    </nav>
+
+    @*<nav aria-label="Employee Paging">
+            @await this.Component.InvokeAsync("Pager", new { pagingList = this.Model })
+        </nav>*@
+
+    <table class="table table-light">
+        <thead>
+            <tr>
+                <td colspan="2"><b>HITNE DOSTAVE!</b></td>
+            </tr>
+        </thead>
+    </table>
+    <table class="table table-hover table-light">
+        <tbody>
+            <tr>
+                <td> <span><b>Šifra</b></span> </td>
+                <td> <span><b>Datum kreiranja dostave</b></span> </td>
+            </tr>
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td>
+                        @x.brojDostave
+                    </td>
+                    <td>
+                        @x.DatumDostave
+                    </td>
+                    <td>
+                        <a class="btn btn-outline-info" asp-action="Detalji" asp-controller="Dostave" asp-route-DostavaID="@x.DostavaId"><i class="far fa-edit"></i>Detalji</a>
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+    <nav aria-label="Suppliers navigation example">
+            <vc:pager paging-list="@Model" />
+    </nav>
+
+    <br />
+    <a class="btn btn-outline-info" asp-action="Index" asp-controller="Home" asp-route-DostavaID=""><i class="fas fa-backward"></i> Nazad</a>
+</div>
+
+@*<nav aria-label="Page navigation example">
+    <ul class="pagination pg-blue">
+        <li class="page-item ">
+            <a class="page-link" tabindex="-1">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link">1</a></li>
+        <li class="page-item active">
+            <a class="page-link">2 <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="page-item"><a class="page-link">3</a></li>
+        <li class="page-item ">
+            <a class="page-link">Next</a>
+        </li>
+    </ul>
+</nav>*@

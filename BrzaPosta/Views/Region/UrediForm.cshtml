@@ -1,0 +1,23 @@
+﻿
+@using BrzaPosta.EntityModels
+@{
+    ViewData["Title"] = "UrediForm";
+}
+@model Region
+
+
+<form asp-action="SnimiForm">
+    <fieldset>
+        @Html.HiddenFor(r => r.RegionId)
+        <div style="width:70%; position:relative; margin:7% 15%;">
+            <div class="form-group">
+                <label for="Naziv">Naziv regiona</label>
+                <input asp-for="Naziv" class="form-control" id="naziv" aria-describedby="nazivHelp" placeholder="Unesite naziv regiona" />
+            </div>
+
+            <button type="submit" class="btn btn-outline-primary btn-lg"><i class="far fa-save"></i> Snimi</button>
+
+        </div>
+
+    </fieldset>
+</form>

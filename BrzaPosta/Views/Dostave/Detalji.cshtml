@@ -1,0 +1,114 @@
+﻿
+
+
+@using BrzaPosta.Web.ViewModels
+@using BrzaPosta.EntityModels
+@using BrzaPosta.Web.Helper
+
+@model DostaveDetaljiVM
+@{
+    KorisnickiNalog korisnik = Context.GetLogiraniKorisnik();
+}
+
+<div class="sadrzajDiv">
+    <div class="divDetaljiDostave">
+        <div style="position:relative; display:block;">
+            <table class="tabela">
+                <tbody>
+                    <tr>
+                        <th>DatumDostave</th>
+                        <td>@Model.DatumDostave</td>
+                    </tr>
+                    <tr>
+                        <th>DatumKreiranja</th>
+                        <td>@Model.DatumKreiranja</td>
+                    </tr>
+                    <tr>
+                        <th>DatumIzmjene</th>
+                        <td>@Model.DatumIzmjene</td>
+                    </tr>
+                    <tr>
+                        <th>Prioritet</th>
+                        <td>@Model.Prioritet</td>
+                    </tr>
+                    <tr>
+                        <th>Aktivna</th>
+                        <td>@Model.Aktivna</td>
+                    </tr>
+                    <tr>
+                        <th>BrojDostave</th>
+                        <td>@Model.BrojDostave</td>
+                    </tr>
+                    <tr>
+                        <th>Tezina</th>
+                        <td>@Model.Tezina kg</td>
+                    </tr>
+                    <tr>
+                        <th>Cijena</th>
+                        <td>@Model.Cijena KM</td>
+                    </tr>
+                    <tr>
+                        <th>Mjesto dostave</th>
+                        <td>@Model.MjestoDostavljanja</td>
+                    </tr>
+                </tbody>
+                <tr></tr>
+            </table>
+        </div>
+
+
+        <img src="~/images/fast_delivery.png" style="width:15%; height:10%; margin:0 0 0 100%; opacity:0.6;" />
+
+
+        <div id="stavkeDostaveMjesto"></div>
+        <div id="statusiMjesto"></div>
+
+
+    </div>
+
+    <br />
+    <a class="btn btn-outline-info" href='javascript:history.go(-1)'><i class="fas fa-backward"></i> Nazad</a>
+
+    @*<div id="stavkeDostaveMjesto" style="border:1px black solid"></div>
+        <div id="statusiMjesto" style="border:1px black solid"></div>*@
+
+    @if (Model.IsZaposlenik == false)
+    {
+        <script>
+    $(document).ready(function () {
+        $.get("/Statusi/Index?DostavaID=@Model.DostavaID",
+            function (rezultat) {
+                $("#stavkeDostaveMjesto").html(rezultat);
+            }
+        )
+
+        $.get("/StavkeDostave/Index?DostavaID=@Model.DostavaID",
+            function (rezultat) {
+                $("#statusiMjesto").html(rezultat);
+            }
+        )
+    });
+        </script>
+    }
+
+</div>
+
+
+
+<style>
+    .tabela {
+        margin:0 auto;
+        font-size:1.1em;
+    }
+
+    .tabela tr td {
+        padding:5px 80px;
+    }
+
+    .divDetaljiDostave {
+        position: relative;
+        padding: 5% 15%;
+        background-color:antiquewhite;
+    }
+</style>
+

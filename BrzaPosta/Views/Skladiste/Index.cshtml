@@ -1,0 +1,74 @@
+﻿@model ReflectionIT.Mvc.Paging.PagingList<SkladistaIndexVM>
+@using ReflectionIT.Mvc.Paging
+@addTagHelper *, ReflectionIT.Mvc.Paging
+
+
+<br />
+@{
+    int b = 1;
+}
+
+@{
+
+    string porukaDanger = TempData["poruka-danger"] as string;
+    string porukaSuccess = TempData["poruka-success"] as string;
+}
+
+
+
+
+<div class="sadrzajDiv">
+    @if (porukaDanger != null)
+    {
+        <div class="alert alert-danger" id="porukaBox">
+            @porukaDanger
+        </div>
+    }
+    @if (porukaSuccess != null)
+    {
+        <div class="alert alert-dismissible alert-success" id="porukaBox">
+            <strong>@porukaSuccess</strong>
+        </div>
+    }
+    <a href="/Skladiste/Dodaj" class="btn btn-outline-primary btn-lg" style="float:right; margin-bottom:5px;"><i class="fas fa-plus"></i> Dodaj</a>
+
+
+    <nav aria-label="Suppliers navigation example">
+        @await this.Component.InvokeAsync("Pager", new { pagingList = this.Model })
+    </nav>
+
+    <table class="table table-light table-bordered" style="margin:5px 0;">
+        <thead>
+            <tr>
+                <th colspan="5">Skladista</th>
+
+            </tr>
+        </thead>
+    </table>
+    <table class="table table-light table-bordered">
+        <tbody class="table-hover">
+            @foreach (var x in Model)
+            {
+                <tr class="table-dark">
+                    <td>@(b++)</td>
+                    <td>@x.Naziv</td>
+                    <td>@x.Adresa</td>
+                    <td>@x.Opis</td>
+                    <td>
+                        <a href="/Skladiste/Uredi?SkladisteId=@x.SkladisteId" class="btn btn-outline-secondary"><i class="far fa-edit"></i></a>
+                        <a href="/Skladiste/Brisi?SkladisteId=@x.SkladisteId" class="btn btn-outline-warning"><i class="far fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <nav aria-label="Suppliers navigation example">
+        <vc:pager paging-list="@Model" />
+    </nav>
+
+
+    <br />
+    <a class="btn btn-outline-info" asp-action="Index" asp-controller="Home" asp-route-DostavaID=""><i class="fas fa-backward"></i> Nazad</a>
+</div>
+

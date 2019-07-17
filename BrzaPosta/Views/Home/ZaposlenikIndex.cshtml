@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "ZaposlenikIndex";
+}
+
+
+<div class="upravljanje">
+
+    <div class="option-image-container">
+        <a asp-controller="Dostave" asp-action="Index">
+            <div class="gallery-image" style="background-image:url(/images/zaposelnikOpcije/urgent_delivery.png)"></div>
+            <div class="text">Hitne dostave</div>
+        </a>
+    </div>
+    <div class="option-image-container">
+        <a asp-controller="Dostave" asp-action="DostaveNaCekanju">
+            <div class="gallery-image" style="background-image:url(/images/zaposelnikOpcije/on_waiting.png)"></div>
+            <div class="text">Dostave na čekanju</div>
+        </a>
+    </div>
+
+    <div class="option-image-container">
+        <a asp-controller="Dostave" asp-action="ArhivaDostava">
+            <div class="gallery-image" style="background-image:url(/images/userOpcije/delivery_archive.png)"></div>
+            <div class="text">Arhiva dostava</div>
+        </a>
+    </div>
+
+    <div class="option-image-container">
+        <a asp-controller="Dostave" asp-action="ZavrsiDostavu">
+            <div class="gallery-image" style="background-image:url(/images/zaposelnikOpcije/finish_delivery.png)"></div>
+            <div class="text">Završi dostavu</div>
+        </a>
+    </div>
+    <div class="option-image-container">
+        <a asp-controller="Dostave" asp-action="PretragaPosiljke">
+            <div class="gallery-image" style="background-image:url(/images/userOpcije/delivery_tracking.png)"></div>
+            <div class="text">Prati dostavu</div>
+        </a>
+    </div>
+</div>
+
+
